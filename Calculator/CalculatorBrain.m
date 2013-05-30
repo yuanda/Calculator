@@ -40,22 +40,25 @@
 -(double)performOperation:(NSString *)operation{
     [self.programStack addObject:operation];
     return [CalculatorBrain runProgram:self.program];
+    
 }
 
 - (id) program
 {
+    //Take a snapshot, make it mutable
     return [self.programStack copy];
 }
 
 + (NSString *)descriptionOfProgram:(id)program
 {
-    return @"Implement this in Assignment 2";
+    return @"Implement this in Assignment HYD";
 }
 
 + (double)popOperandOffStack:(NSMutableArray *)stack
 {
     double result = 0;
-    
+    //pop operand off the stack
+    //if operation, need to recursively evaluate
     id topOfStack = [stack lastObject];
     if (topOfStack) [stack removeLastObject];
     
